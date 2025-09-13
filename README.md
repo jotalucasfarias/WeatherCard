@@ -45,8 +45,10 @@ npm install
 3. Crie um arquivo `.env` na raiz e adicione sua chave da API do OpenWeather:
 
 ```env
-VITE_WEATHER_API_KEY=sua_chave_aqui
+VITE_API_KEY=sua_chave_aqui
 ```
+
+> Após alterar/criar o arquivo `.env` ou `.env.local`, reinicie o servidor de desenvolvimento (npm run dev) para que o Vite carregue a nova variável de ambiente.
 
 4. Inicie o servidor de desenvolvimento:
 

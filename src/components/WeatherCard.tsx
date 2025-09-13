@@ -1,13 +1,11 @@
+/// <reference types="vite/types/importMeta.d.ts" />
+
 import { useState } from 'react';
 import { FiWind } from 'react-icons/fi';
 import { IoSearchOutline } from 'react-icons/io5';
 import { WiHumidity } from 'react-icons/wi';
 
-import LuaSVG from '../assets/lua.svg';
-import NuvemSolSVG from '../assets/nuvem-sol.svg';
-import SolSVG from '../assets/sol.svg';
-
-const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 interface WeatherData {
   cityName: string;
@@ -52,12 +50,12 @@ export default function WeatherCard() {
     }
   }
 
-  function iconeClima(): string | undefined {
-    if (!weatherData) return undefined;
+  function iconeClima(): string {
+    if (!weatherData) return '';
     const isNight = weatherData.weatherIcon.endsWith('n');
-    if (isNight) return LuaSVG;
-    if (weatherData.temperature >= 25) return SolSVG;
-    return NuvemSolSVG;
+    if (isNight) return '/lua.svg';
+    if (weatherData.temperature >= 25) return '/sol.svg';
+    return '/nuvem-sol.svg';
   }
 
   const iconeAtual = iconeClima();
